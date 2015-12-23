@@ -4,7 +4,7 @@
 
 #define LED 13
 
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial, MIDI);
+MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
 void setup()
 {
@@ -13,6 +13,8 @@ void setup()
   MIDI.begin(MIDI_CHANNEL_OMNI);
 
   Alarm.timerRepeat(2, sendNoteOn);
+
+  digitalWrite(LED, LOW);
 }
 
 void sendNoteOn()
